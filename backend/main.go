@@ -14,12 +14,15 @@ func main() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/api/login", auth.LoginHandler).Methods("POST")
+
 	router.Handle("/api/protected", auth.RequireAuth(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		email := r.Header.Get("X-User-Email")
 		w.Write([]byte("Welcome: " + email))
 	})))
 
-	// Enable CORS if frontend is on different domain/port
+	router.HandleFunc("/api/logout", auth.LogoutHandler).Methods("POST")
+
+	// Enable CORS
 	handler := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:5173"},
 		AllowCredentials: true,

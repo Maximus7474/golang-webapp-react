@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 
@@ -17,7 +18,8 @@ func main() {
 
 	router.Handle("/api/protected", auth.RequireAuth(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		email := r.Header.Get("X-User-Email")
-		w.Write([]byte("Welcome: " + email))
+		log.Println("/api/protected - Email:", email)
+		json.NewEncoder(w).Encode(map[string]string{"message": "Welcome: " + email})
 	})))
 
 	router.HandleFunc("/api/logout", auth.LogoutHandler).Methods("POST")

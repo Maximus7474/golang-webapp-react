@@ -49,8 +49,7 @@ function App() {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
-      setMessage(JSON.stringify(data));
+      setMessage(data.message);
     } else {
       setMessage('Failed to fetch protected content');
     }

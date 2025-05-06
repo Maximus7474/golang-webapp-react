@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Maximus7474/golang-webapp-react/backend/utils"
+	"backend/utils"
 )
 
 type Credentials struct {

@@ -3,7 +3,7 @@ package auth
 import (
 	"net/http"
 
-	"github.com/Maximus7474/golang-webapp-react/backend/utils"
+	"backend/utils"
 )
 
 func RequireAuth(next http.Handler) http.Handler {

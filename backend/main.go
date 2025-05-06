@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 
-	"github.com/Maximus7474/golang-webapp-react/backend/auth"
+	"backend/auth"
 )
 
 func main() {

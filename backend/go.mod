@@ -1,4 +1,4 @@
-module github.com/Maximus7474/golang-webapp-react/backend
+module backend
 
 go 1.24.1
 
